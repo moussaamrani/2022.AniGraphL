@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="FSM" nsURI="https://www.unamur.be/FSM" nsPrefix="FSM">
+  <eClassifiers xsi:type="ecore:EClass" name="FSM" eSuperTypes="//Named">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alphabet" lowerBound="1" upperBound="-1" defaultValueLiteral="">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state" lowerBound="1" upperBound="-1" eType="//State" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transition" upperBound="-1" eType="//Transition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="word" lowerBound="1" eType="//Word" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="current" lowerBound="1" eType="//State"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Named">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="//Named">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1" eType="//Kind"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tgt" lowerBound="1" eType="//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" lowerBound="1" eType="//Trigger" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Trigger" eSuperTypes="//Named"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="Kind">
+    <eLiterals name="NORMAL"/>
+    <eLiterals name="FINAL" value="1"/>
+    <eLiterals name="INITIAL" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Word">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1" eType="//Element" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Element" eSuperTypes="//Named"/>
+</ecore:EPackage>

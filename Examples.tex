@@ -1,0 +1,45 @@
+\section{DSL Examples}
+\label{sec:Examples}
+
+This Section presents three examplar \DSLs, namely \textsf{PacMan}, Finite State
+Machines (\textsf{FSM}), and Petri Nets (\textsf{PN}), following the same 
+presentation:
+\begin{itemize}
+	\item The \DSL's structure is specified using a metamodel expressed in \MOF;
+   we also define a possible \emph{concrete syntax} and provide a simple
+   witness model.
+
+   \item The \DSL's semantics is explained informally. We however detail possible
+   implementations of the semantics of PacMan to show that our approach is indeed
+   independent of the MTL used.
+
+   \item A set of animations are then described in detail, and numbered for 
+   future reference.
+\end{itemize}
+Note that we assume that the \DSL structure follows the Executable \DSML Pattern
+\citep{Combemale-Cregut-Pantel:2012}, which consists of two separate metamodels for
+defining executable \DSMLs:
+\begin{itemize}
+	\item The so-called \emph{Domain Definition} metamodel captures the 
+   \emph{static} structure of the \DSL, which typically serves for defining valid
+   models using various textual and/or visual syntaxes;
+   
+   \item The \emph{State Definition} metamodel adds new information on top of the
+   Domain Definition metamodel to enable state-based execution, thus defining those
+   elements that are modified during execution.
+\end{itemize}
+Both metamodels typically need to be merged, using different techniques (e.g.,
+using \MOF's ``package merge'' approach \cite{TR:OMG-MOF:2016}, or other 
+composition techniques \cite{J:Abouzahra-Sabraoui-Afdel:2020}).
+For clarity and presentation simplification purposes, we depicts both metamodels
+in a merged fashion, although we visually distinguish each part: the Domain Definition
+metamodel elements are represented using the regular font with plain arrows for 
+references; while the State Definition elements use curvy fonts and dotted references.
+
+\input{Example_PM}
+\input{Example_FSM}
+\input{Example_PN}
+
+
+
+

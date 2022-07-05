@@ -1,0 +1,141 @@
+\documentclass[sigconf%,review%,anonymous
+]{acmart}
+
+%% Rights management information.  This information is sent to you
+%% when you complete the rights form.  These commands have SAMPLE
+%% values in them; it is your responsibility as an author to replace
+%% the commands and values with those provided to you when you
+%% complete the rights form.
+\setcopyright{acmcopyright}
+\copyrightyear{2018}
+\acmYear{2022}
+\acmDOI{XXXXXXX.XXXXXXX}
+
+%% These commands are for a PROCEEDINGS abstract or paper.
+\acmConference[MLE'22]{Modeling Language Engineering}{October 23rd--28th, 2022}{Montréal, Canada}
+%\acmPrice{15.00}
+\acmISBN{978-1-4503-XXXX-X/18/06}
+
+\usepackage{paralist,enumitem}
+%\usepackage{anyfontsize}
+\usepackage{subcaption}
+
+\graphicspath{{img/}{pdf/}}
+\renewcommand{\sfdefault}{ccr}   % Changed default font for sans-serif to Computer Concrete
+\usepackage{balance}
+\usepackage{xspace}
+% Hyperreferences
+\usepackage{hyperref, url}
+
+
+
+% Figures and stuff
+\usepackage{graphicx}
+\usepackage{boxedminipage}
+\graphicspath{{img/}}
+
+
+
+
+
+
+
+
+
+
+
+%%%%% COMMENT SYSTEM %%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{ifthen}
+\usepackage{xcolor, color}
+\newboolean{showcomments}
+\setboolean{showcomments}{true} % toggle to show or hide comments
+\ifthenelse{\boolean{showcomments}} 
+{\newcommand{\nb}[2]{
+\fcolorbox{gray}{yellow}{\bfseries\sffamily #1}
+{$\blacktriangleright$#2$\blacktriangleleft$}
+}
+\newcommand{\version}{\emph{\scriptsize$-$working$-$}}
+}
+{\newcommand{\nb}[2]{} 
+\newcommand{\version}{}
+}
+\newcommand\AO[1]{\nb{Abdel}{\textcolor{teal}{#1}}}
+\newcommand\MA[1]{\nb{MA}{\textcolor{blue}{#1}}} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% MACROS %%%%%%%%%%%%%%%%%%%%%
+\hyphenation{pa-ra-digm}
+\hyphenation{pa-ra-digms}
+\hyphenation{dic-tio-nary}
+\hyphenation{com-po-nent}
+\hyphenation{com-po-nents}
+\hyphenation{eu-ro-pean}
+\hyphenation{tech-no-lo-gy}
+
+\newcommand{\AD}{\textsc{AD}\xspace}
+\newcommand{\CBD}{\textsc{CBD}\xspace}
+\newcommand{\CBDs}{\textsc{CBD}s\xspace}
+\newcommand{\CPS}{\textsc{CPS}\xspace}
+\newcommand{\CPSs}{\textsc{CPSs}\xspace}
+\newcommand{\DSL}{\textsc{Dsl}\xspace}
+\newcommand{\DSLs}{\textsc{Dsl}s\xspace}
+\newcommand{\DSML}{\textsc{Dsml}\xspace}
+\newcommand{\DSMLs}{\textsc{Dsml}s\xspace}
+\newcommand{\GPL}{\textsc{GPL}\xspace}
+\newcommand{\GPLs}{\textsc{GPL}s\xspace}
+\newcommand{\MDE}{\textsc{Mde}\xspace}
+\newcommand{\MPM}{\textsc{MPM}\xspace}
+\newcommand{\MOF}{\textsc{MOF}\xspace}
+\newcommand{\OCL}{\textsc{OCL}\xspace}
+\newcommand{\OO}{OO\xspace}
+\newcommand{\SDF}{\textsc{SDF}\xspace}
+\newcommand{\TFSA}{\textsc{TFSA}\xspace}
+\newcommand{\UML}{\textsc{UML}\xspace}
+
+\newcommand*{\ie}{\textit{i.e.,}\@\xspace}
+\newcommand*{\eg}{\textit{e.g.,}\@\xspace}
+\newcommand*{\cf}{\textit{cf.}\@\xspace}
+
+\newcommand{\Name}{{\cal N}}
+\newcommand{\dcolon}{\ensuremath{\,\colon\!\!\colon}\xspace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Encoding & Locale
+\usepackage[british]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+
+
+\begin{document}
+
+\title{Towards Model Animation Engineering In MDE:\\ Key Ingredients and General Guidelines}
+\author{Moussa Amrani}
+\email{Moussa.Amrani@unamur.be}
+\orcid{1234-5678-9012}
+\author{Abdelkader Ouared}
+\email{Abdelkader.Ouared@unamur.be}
+\author{Pierre-Yves Schobbens}
+\email{Pierre-Yves.Schobbens@unamur.be}
+\affiliation{%
+  \institution{Faculty of Computer Science / NaDI, University of Namur}
+  \streetaddress{Rue Grandgagnage, 21}
+  \city{Namur}
+  \country{Belgium}
+  \postcode{5000}
+}
+
+\renewcommand{\shortauthors}{Amrani, Ouared and Schobbens}
+
+\maketitle
+\input{Abstract}
+\input{Introduction}
+\input{Examples}
+\input{AniGraphL}
+
+\balance
+\bibliographystyle{plainnat}
+\bibliography{./MLE}
+\end{document}
