@@ -41,21 +41,8 @@ We adopt a \emph{word-recognising} semantics encoded in a transformation called
 \textsf{Word} is accepted iff the \textsf{current} \textsf{State} of the \textsf{FSM}
 is \textsf{FINAL} when the \textsf{Word} becomes empty.
 
-%Initially, \textsf{current} references the unique \textsf{START} \textsf{State} 
-%in the \textsf{FSM} model \textsf{accept} is applied to. An execution step proceeds
-%as follows: the \textsf{FSM} reads, or consumes, a \textsf{Word} \textsf{Element}
-%\textsf{e}; if there exists an outgoing \textsf{Transition} \textsf{t} with
-%a \textsf{Trigger} \textsf{trig} that matches the \textsf{Element} (i.e. 
-%$\mathsf{trig} = \mathsf{e}$), the \textsf{current} \textsf{State} is updated to 
-%\textsf{t}'s \textsf{tgt}, otherwise \textsf{accept} returns false. When 
-%\textsf{w} is empty, \textsf{accept} returns true iff the \textsf{current} 
-%\textsf{State} at the end of the execution is \textsf{FINAL}.
-
 \subsubsection{Animations}
 \label{sec:Examples:FSM:Animations}
-
-
-
 
 Typically, \textsf{accept} is implemented using a sub-transformation 
 \textsf{fire(e : Element) : State [0..1]} that determines which \textsf{State} 
@@ -65,9 +52,6 @@ candidate for four different animations, when \textsf{fire} returns an actual
 \begin{description}
    \item[FSM.1] The token disappears from the \textsf{current} \textsf{State} and
    reappears inside the updated \textsf{current};
-   %\item[FSM.2] The token disappears from the \textsf{current} \textsf{State}, and
-   %briefly appears on top of the fired \textsf{Transition}, then appears inside the
-   %updated \textsf{current};
    \item[FSM.2] The token disappears from the \textsf{current} \textsf{State}, and
    slides along the entire arrow of the fired \textsf{Transition}, then appears in
    the updated \textsf{current};
@@ -138,7 +122,7 @@ candidate for four different animations, when \textsf{fire} returns an actual
       \includegraphics[width=\columnwidth, clip, trim=0cm 17cm 3cm 0cm]{FSM_MA31.pdf}%
       \caption{\textbf{Animation FSM.3:} The first phase of the animation highlights
       \textsf{Transition} \textsf{a} in red (as well as its \textsf{Trigger}).}
-      \label{fig:FSM:Model:Animation:FSA2.1}
+      \label{fig:FSM:Model:Animation:FSA2.3}
     \end{subfigure}
     \hfill
     \begin{subfigure}[t]{0.45\columnwidth}
@@ -146,7 +130,7 @@ candidate for four different animations, when \textsf{fire} returns an actual
       \includegraphics[width=\columnwidth, clip, trim=0cm 17cm 3cm 0cm]{FSM_MA22.pdf}%
       \caption{\textbf{Animation FSM.3:} The second phase of the animation makes
       the token appears in \textsf{State} 2, after consuming \textsf{b}.}
-      \label{fig:FSM:Model:Animation:FSA2.2}
+      \label{fig:FSM:Model:Animation:FSA2.4}
     \end{subfigure}
 
   \caption{\textsf{abc}: a simple model of an FSM conforming to the specification
