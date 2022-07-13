@@ -1,6 +1,11 @@
 \section{Background \& Motivation}
 \label{sec:Motivation}
-\autoref{fig:MT} (left) depicts the various components of (a simplified, unary) MT. An input model $\mathsf{M}_{_{\mathsf{in}}}$, conforming to a source metamodel $\mathsf{MM}_{_{\mathsf{src}}}$, is transformed into an output model $\mathsf{M}_{_{\mathsf{out}}}$, hopefully conforming to a target metamodel$\mathsf{MM}_{_{\mathsf{tgt}}}$, by the execution of an MT specification.
+
+\autoref{fig:MT} (left) depicts the various components of (a simplified, unary) MT. 
+An input model $\mathsf{M}_{_{\mathsf{in}}}$, conforming to a source metamodel 
+$\mathsf{MM}_{_{\mathsf{src}}}$, is transformed into an output model 
+$\mathsf{M}_{_{\mathsf{out}}}$, hopefully conforming to a target metamodel
+$\mathsf{MM}_{_{\mathsf{tgt}}}$, by the execution of an MT specification.
 
 \begin{figure}[t]%
    \begin{minipage}[t]{0.48\columnwidth}
@@ -24,16 +29,38 @@ semantically, similar, they may serve different purposes (known as MT intents
 \citep{J:Lucio-Amrani-etAl:2014} in the literature) that need to be adequately
 distinguished. For the purpose of this paper, three different MT intents are
 interesting to precisely define, because they often raise confusion in the literature.
-For an input model \textsf{M},\begin{description}
-   \item[Visualisation] is an intent characterising an outplace, heterogeneous   MT aiming at visually \emph{representing}, or \emph{rendering}, \textsf{M}    through the definition of a \emph{visual} concrete syntax mainly composed of 
-   graphical symbols.      \item[Simulation] is an intent characterising an inplace, endogeneous MT aiming   at defining \textsf{M}'s operational semantics, i.e. how \textsf{M} evolves    over time during executed.      \item[Animation] is ``\emph{the visual representation of a simulation}''    \citep{J:Lucio-Amrani-etAl:2014}, i.e. it visually renders the computations steps   defined by the MT simulation specification, by visually projecting the changes   operated on the simulated model through its (visual) concrete syntax.
+For an input model \textsf{M},
+\begin{description}
+   \item[Visualisation] is an intent characterising an outplace, heterogeneous
+   MT aiming at visually \emph{representing}, or \emph{rendering}, \textsf{M} 
+   through the definition of a \emph{visual} concrete syntax mainly composed of 
+   graphical symbols.
+   
+   \item[Simulation] is an intent characterising an inplace, endogeneous MT aiming
+   at defining \textsf{M}'s operational semantics, i.e. how \textsf{M} evolves 
+   over time during executed.
+   
+   \item[Animation] is ``\emph{the visual representation of a simulation}'' 
+   \citep{J:Lucio-Amrani-etAl:2014}, i.e. it visually renders the computations steps
+   defined by the MT simulation specification, by visually projecting the changes
+   operated on the simulated model through its (visual) concrete syntax.
 \end{description}
 Summarising, an \emph{animation} is tightly connected to a \emph{simulation} through
 the use of a(n existing) \emph{visualisation}.
 In other terms, designing an MA requires the following components, as depicted 
-in \autoref{fig:MT} (right):\begin{itemize}
-	\item A Concrete Syntax \textsf{CS} that should be defined over \textsf{MM}, so   that it becomes possible to \emph{visualise} \textsf{M} as a graphical model    $\mathsf{M}_{\mathsf{CS}}$.      \item \textsf{MM}'s operational semantics is specified in a \emph{simulation}   MT (specification).      \item \emph{during} each run of the simulation's execution, the computing steps   are visually rendered over $\mathsf{M}_{\mathsf{CS}}$.
-\end{itemize}
+in \autoref{fig:MT} (right):
+\begin{itemize}
+	\item A Concrete Syntax \textsf{CS} that should be defined over \textsf{MM}, so
+   that it becomes possible to \emph{visualise} \textsf{M} as a graphical model 
+   $\mathsf{M}_{\mathsf{CS}}$.
+   
+   \item \textsf{MM}'s operational semantics is specified in a \emph{simulation}
+   MT (specification).
+   
+   \item \emph{during} each run of the simulation's execution, the computing steps
+   are visually rendered over $\mathsf{M}_{\mathsf{CS}}$.
+\end{itemize}
+
 Just like MTs are built over transformation \emph{units}, i.e. basic building blocks
 that are composed to realise larger, complex transformations, it is likely that 
 MA requires a similar decomposition process into basic ``units'' to build and 
@@ -103,4 +130,4 @@ for an MA Engineer, would be the following:
    
    \item[C3.] How to explicitly map TUs describing a \DSL's behaviour with the
    appropriate AU(s)? 
-\end{description}
+\end{description}
