@@ -22,12 +22,16 @@
 MTs are not created equal: whereas they may seem syntactically, and sometimes 
 semantically, similar, they may serve different purposes (known as MT intents
 \citep{J:Lucio-Amrani-etAl:2014} in the literature) that need to be adequately
-distinguished. For an input model \textsf{M},\begin{description}
-   \item[Visualisation] is an intent characterising an outplace, heterogeneous   MT aiming at visually \emph{representing}, or \emph{rendering}, \textsf{M}    through the definition of a \emph{visual} concrete syntax based on graphical    symbols.      \item[Simulation] is an intent characterising an inplace, endogeneous MT aiming   at defining \textsf{M}'s operational semantics, i.e. how \textsf{M} evolves    over time during when executed.      \item[Animation] is ``\emph{the visual representation of a simulation}''    \citep{J:Lucio-Amrani-etAl:2014}, i.e. it visually renders the computations steps   defined by the MT simulation specification, by visually projecting the changes   operated on the simulated model through its (visual) concrete syntax.
+distinguished. For the purpose of this paper, three different MT intents are
+interesting to precisely define, because they often raise confusion in the literature.
+For an input model \textsf{M},\begin{description}
+   \item[Visualisation] is an intent characterising an outplace, heterogeneous   MT aiming at visually \emph{representing}, or \emph{rendering}, \textsf{M}    through the definition of a \emph{visual} concrete syntax mainly composed of 
+   graphical symbols.      \item[Simulation] is an intent characterising an inplace, endogeneous MT aiming   at defining \textsf{M}'s operational semantics, i.e. how \textsf{M} evolves    over time during executed.      \item[Animation] is ``\emph{the visual representation of a simulation}''    \citep{J:Lucio-Amrani-etAl:2014}, i.e. it visually renders the computations steps   defined by the MT simulation specification, by visually projecting the changes   operated on the simulated model through its (visual) concrete syntax.
 \end{description}
-Summerising, an \emph{animation} is tightly connected to a \emph{simulation}, and
-makes use of a \emph{visualisation}. In other terms, designing an MA requires the
-following components, as depicted in \autoref{fig:MT} (right):\begin{itemize}
+Summarising, an \emph{animation} is tightly connected to a \emph{simulation} through
+the use of a(n existing) \emph{visualisation}.
+In other terms, designing an MA requires the following components, as depicted 
+in \autoref{fig:MT} (right):\begin{itemize}
 	\item A Concrete Syntax \textsf{CS} that should be defined over \textsf{MM}, so   that it becomes possible to \emph{visualise} \textsf{M} as a graphical model    $\mathsf{M}_{\mathsf{CS}}$.      \item \textsf{MM}'s operational semantics is specified in a \emph{simulation}   MT (specification).      \item \emph{during} each run of the simulation's execution, the computing steps   are visually rendered over $\mathsf{M}_{\mathsf{CS}}$.
 \end{itemize}
 Just like MTs are built over transformation \emph{units}, i.e. basic building blocks
@@ -35,17 +39,28 @@ that are composed to realise larger, complex transformations, it is likely that
 MA requires a similar decomposition process into basic ``units'' to build and 
 organise them. However, MTs are likely specified independently of any MA, primarily
 for capturing the \DSL's behaviour, but also likely for supporting other activities
-(typically, code generation, and various analyses, among others).
+(typically, code generation, and various analyses, among others). Since both an MT
+and an MA for a given model \textsf{M} exist for different purposes, it seems 
+reasonable to build them separately, and even to entrust their specification to
+different persons, or teams, thus creating a new \emph{role} in \MDE: the 
+\emph{MA Designer}, who need adequate methodologies and tools to perform the job.
 
-Furthermore, it seems natural to connect both units: an Animation Unit (AU) visually
-renders the effect of a Transformation Unit (TU) using a detour (expressed by the
-\emph{rendering} MT intent) through the concrete syntax. To fully unlock the 
-potential of MA engineering, both types of units should be completely decoupled,
-requiring an explicit mechanism to relate one to the other. This approach is similar
-to the definition of debugging steps related to TUs 
-\cite{bousse2018omniscient,J:VanMierlo-Vangheluwe-etAl:2020}: to avoid inspecting
-models that may be inconsistent during the execution of a TU, a so-called debugging
-\emph{step} is defined by annotating TUs relevant for inspection. 
+Although serving different concerns, MT and MA are by nature tightly connected,
+since they both encode a \DSL's behaviour. A Model Transformation Unit (TU) is the
+smallest, coherent unit of computation visible from the outside. An interesting
+approach would consist in directly relating, or connecting, the (execution of) a
+Model Animation Unit (AU) to (the execution of) a TU, so that the changes performed
+inside the TU are visually rendered. 
+
+However, to fully unlock the potential of MA engineering, the specification of UAs
+should be completely decoupled from the specification of (and languages for) TUs.
+As they serve a common purpose, a mechanism for explicitly relating UAs to corresponding
+TU(s) is required for this vision to work. 
+
+This vision is directly inspired by how existing methodologies for designing 
+debuggers for MTLs \citep{bousse2018omniscient,J:VanMierlo-Vangheluwe-etAl:2020}:
+to avoid inspecting models that may be inconsistent during the execution of a TU,
+a so-called debugging \emph{step} is defined by annotating TUs relevant for inspection.
 Conceptually, TUs and AUs should be in an \textsf{N:N} relationship, as depicted
 in \autoref{fig:TU-AU}
 \begin{itemize}
@@ -72,7 +87,7 @@ To summarise our vision for enabling a systematic design of MA, we assume that a
 \DSL Engineer has already defined the core components, i.e. a metamodel capturing
 the abstract syntax, one concrete syntax allowing to create, edit and manage 
 conforming models, and a simulation that captures the \DSL's behaviour, specified
-in an MTL that clearly defines TUs. The missing steps, and corresponding challenges,
+in an MTL that defines identifiable TUs. The missing steps, and corresponding challenges,
 for an MA Engineer, would be the following:
 
 \begin{description}
