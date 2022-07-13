@@ -51,9 +51,9 @@ and \textsf{fire} it. The execution stops when no \textsf{Transition}s are enabl
 any more. There is several possibilities for animation.
 
 \begin{description}
-   \item[PN.1] Highlighting all \textsf{Transition}s that are enabled;
-   \item[PN.2] Among enabled \textsf{Transition}s, highlight the \textsf{Transition}
-   selecting for firing;
+   \item[PN.1] Highlight all \textsf{Transition}s that are enabled;
+   \item[PN.2] Highlight \emph{the} \textsf{Transition}, among all enabled ones,
+   that has been selected for firing;
    \item[PN.3] Firing a \textsf{Transition}, which may be realised using 
    different animations:
    \begin{description}
@@ -65,3 +65,6 @@ any more. There is several possibilities for animation.
       tokens along the \textsf{Arc}s to visually represent the marking transfer.
    \end{description}
 \end{description}
+Again, all those three animations are related in complex ways: it may be possible
+to perform them step by step, or automatically, or even interactively leave the 
+choice to the user to select which \textsf{Transition} has to be fired. 

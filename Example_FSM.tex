@@ -12,7 +12,8 @@ reduced to their simplest expression, namely simple strings.
 \label{sec:Examples:FSM:Specification}
 
 \begin{figure}[t]%
-   \includegraphics[width=\columnwidth]{FSM}%
+   \centering
+   \includegraphics[width=\columnwidth, clip, trim=0.3cm 12cm 14.5cm 0.3cm]{FSM_MM}%
    \caption{A metamodel for Finite State Machines.}%
    \label{fig:FSM_MM}%
 \end{figure}
@@ -46,20 +47,34 @@ is \textsf{FINAL} when the \textsf{Word} becomes empty.
 
 Typically, \textsf{accept} is implemented using a sub-transformation 
 \textsf{fire(e : Element) : State [0..1]} that determines which \textsf{State} 
-to update to when consuming an \textsf{Element} \textsf{e}, making it a good 
-candidate for four different animations, when \textsf{fire} returns an actual 
-\textsf{State}:
+to update to when consuming an \textsf{Element} \textsf{e}.
+There is two categories of animations:
 \begin{description}
-   \item[FSM.1] The token disappears from the \textsf{current} \textsf{State} and
-   reappears inside the updated \textsf{current};
-   \item[FSM.2] The token disappears from the \textsf{current} \textsf{State}, and
-   slides along the entire arrow of the fired \textsf{Transition}, then appears in
-   the updated \textsf{current};
-   \item[FSM.3] The token disappears from the \textsf{current} \textsf{State}, the
-   arrow of the fired \textsf{Transition} blinks in red for 2 seconds, then the 
-   token reappears in the updated \textsf{current}.
+   \item[FSM.1] A \textsf{Letter} is consumed from the \textsf{Word} being 
+   accepted. This may be performed in two ways:
+   \begin{description}
+      \item[FSM.1.1] The \textsf{Letter} is removed from the \textsf{Word};
+      \item[FSM.1.2] The \textsf{Letter} is simply stricken from the \textsf{Word},
+      but is still readable.
+   \end{description}
+   \item[FSM.2] A \textsf{Transition} is fired, thus deactivating the current
+   \textsf{State} and activating the \textsf{State} the \textsf{Transition} points to.
+   This may be realised in different ways:
+   \begin{description}
+      \item[FSM.2.1] The token disappears from the \textsf{current} \textsf{State}
+      and reappears inside the updated \textsf{current}; 
+      \item[FSM.2] The token disappears from the \textsf{current} \textsf{State},
+      and slides along the entire arrow of the fired \textsf{Transition}, then 
+      appears in the updated \textsf{current};
+      \item[FSM.3] The token disappears from the \textsf{current} \textsf{State},
+      the arrow of the fired \textsf{Transition} blinks in red for 2 seconds, 
+      then the token reappears in the updated \textsf{current}.
+   \end{description}
 \end{description}
-
+Note that here again, \textbf{FSM.1} and \textbf{FSM.2} are timely related, but 
+the MA designer may choose different solutions: a sequential, concurrent (i.e.
+indeterministically performing them in the interleaved way), or precisely timed
+approach may suit different needs.
 
 \begin{figure}[t]%
    \centering
@@ -138,4 +153,3 @@ candidate for four different animations, when \textsf{fire} returns an actual
    (cf. \S \ref{sec:Examples:FSM:Animations} for their specification.)}%
    \label{fig:FSM_M}%
 \end{figure}
-

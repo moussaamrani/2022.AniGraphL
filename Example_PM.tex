@@ -26,11 +26,11 @@ the two latters being graphical.
 
 \begin{figure*}[t]
    \includegraphics[width=\textwidth,clip, trim=0cm 5.5cm 0cm 0cm]{MM-M-T.pdf}
-   \caption{Specifying a Pac-Man DSL: the DSL engineer create the metamodel 
-   $\mathsf{MM}_{\mathsf{PM}}$; a modeller chooses a concrete syntax to create
-   a simple model $\mathsf{M}_{\mathsf{2x2}}$; a MT designer specifies a transformation
-   $\mathsf{TS}_{\mathsf{PM}}$ (only the \emph{\textsf{moveR}} MT unit is shown).%
-   \MA{Introduce notation for DDM/SDM!}}
+   \caption{Specification of a \DSL for the PacMan game.%
+   The \DSL Engineer creates the metamodel $\mathsf{MM}_{\mathsf{PM}}$ (following
+   the Executable \DSML Pattern \citep{Combemale-Cregut-Pantel:2012}); an MT 
+   designer specifies a transformation $\mathsf{TS}_{\mathsf{PM}}$ (composed of
+   several transformation units such as \emph{\textsf{moveR}} depicted here).}
    \label{fig:PacMan}
    \Description[<short description>]{<long description>}
 \end{figure*}
@@ -79,13 +79,13 @@ The PacMan game typically uses three kinds of animations for different situation
 To summarise, we would have to define four different animations to fully animate
 the \textsf{PacMan} \DSL:
 \begin{description}
-   \item[PM.1] The \textsf{Persona} disappears from one \textsf{Cell} and reappears
+   \item[PM.1] A \textsf{Persona} disappears from one \textsf{Cell} and reappears
    on another (adjacent) \textsf{Cell}.
    
    \item[PM.2] Assuming \textsf{PacMan} is on a \textsf{Cell} containing a \textsf{Cookie},
    the \textsf{Cookie} disappears.
    
-   \item[PM.3] The \textsf{Score} is updated by a given increment. 
+   \item[PM.3] The \textsf{Score} is updated by a predefined increment. 
 
    \item[PM.4] Assuming \textsf{PacMan} and a \textsf{Ghost} are on the same
    \textsf{Cell}, \textsf{PacMan} disappears.
