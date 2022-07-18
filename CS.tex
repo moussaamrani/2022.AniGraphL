@@ -7,9 +7,10 @@ is related to a \DSML's metamodel \textsf{MM} through two transformations:
 $$ \mathsf{MM} \xrightleftharpoons[\mathrm{parsing}\phantom{MM}]{\phantom{MM}\mathrm{rendering}} \mathsf{CS}$$
 
 In syntax-directed editing, the \emph{parsing} MT is not necessary because models
-are created by relying on the syntax and preventing ill-models. On the other hand,
+are created by relying on the syntax, thus preventing ill-models. On the other hand,
 the \emph{rendering} MT is crucial for representing a model when appropriate, but
 it also represents the anchor for animation. 
+
 
 Having explicit MT between \textsf{MM} and \textsf{CS} assumes indeed that 
 \textsf{CS} is explicitly metamodelled: following the \MDE methodology, such
@@ -60,10 +61,16 @@ We identified at least four challenges:
    Second, if the feature is customisable, it would enforce a natural semantics
    graphically with an expected behaviour. 
    
-   \item[CS.4. Supporting animations natively.] Having at disposal a \DSL
+   \item[CS.4. Providing ``snapping'' capabilities] Snapping helps precise\-ly arrange
+   graphical elements by ``gluing'' them to a specific target, e.g. a canva's
+   boundary, a grid, or points on objects. 
+      
+   \item[CS.6. Supporting animations natively.] Having at disposal a \DSL
    for defining CSs brings the ability to \emph{visually} render metamodels, but
    does not guarantee the ability to perform animation. For that, the \DSL should
    natively support the fast update of visual features that compose the CS (e.g.,
    the position, size, color, type of line of an arrow representing a 
    \textsf{Transition} for the \textsf{FSM}).      
 \end{description}
+
+
