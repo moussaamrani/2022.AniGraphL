@@ -1,9 +1,52 @@
 \section{Proposal}
 \label{sec:Proposal}
-This Section wraps up the previous considerations by making a partial proposalfor the missing elements, so that it becomes possible to demonstrate that our visionworks. We demonstrate that it becomes possible to specify MAs independently of theMT specifying a \DSL's execution semantics; that several MAs may be linked tothe same MT for animating a model according to the viewer's preferences; and finallythat MAs may be reused accross \DSLs.%We start by specifying a prototype metamodel \textsf{CS} for specifying concrete%syntaxes explicitly. We then define \subsection{\textsf{VCS}: A Visual Concrete Syntax \DSL}
+
+This Section wraps up the previous considerations by making a partial proposal
+for the missing elements, so that it becomes possible to demonstrate that our vision
+works. We demonstrate that it becomes possible to specify MAs independently of the
+MT specifying a \DSL's execution semantics; that several MAs may be linked to
+the same MT for animating a model according to the viewer's preferences; and finally
+that MAs may be reused accross \DSLs.
+
+%We start by specifying a prototype metamodel \textsf{CS} for specifying concrete
+%syntaxes explicitly. We then define 
+
+\subsection{\textsf{VCS}: A Visual Concrete Syntax \DSL}
 \label{sec:Proposal-VCS}
-\autoref{fig:VCS} shows the metamodel of \textsf{VCS}, a simplified \DSL designedfor the specification of Visual Concrete Syntaxes. It consists of a \textsf{Canva}of variable size where graphical elments (\textsf{GElement}) may be geometricallyplaced. A \textsf{GElement} follows the Composite Pattern \citep{B:Gamma-etAl:1995}:\textsf{Shape}s may be \emph{composed}, i.e. the \textsf{containee} is displayed\emph{inside} the \textsf{container} with specific alignment features. A \textsf{Shape} is either a \textsf{Table}, a \textsf{TextBox}, or a \textsf{Geometric} element, which is either a \textsf{Form} or a \textsf{Connector}. Each \textsf{Shape} is inscribed into a bounding box with specific dimensions that helps precisely positioning it on the \textsf{Canva}, and alsodefines specific features: for example, a Rectangle may define the thickness of itsexternal box, and an Arrow may define different types and sizes for their heads.A \textsf{Shape} may also define a \textsf{Style} that can be \textsf{name}d andreused across other \textsf{Shape}s, to specify various features such as the backgroundor line colour, the line transparency, etc.This metamodel captures insideness with \textsf{Composer}, and may easily be extendedwith additional \textsf{Shape}s that only need to be encapsulated in a box (thus,giving value to the attributes \textsf{length} and \textsf{height} in \textsf{Shape}).\begin{figure}[t]%   \centering   \includegraphics[width=\columnwidth,clip, trim=0cm 8cm 15cm 0.2cm]{VCS}%   \caption{\textsf{VCS}: A simplified \DSL for specifying \emph{V}isual \emph{C}oncrete \emph{S}yntaxes}%   \label{fig:VCS}%\end{figure}\subsection{Revisiting the \textsf{FSM}}
-\label{sec:Proposal-FSM}
+
+\autoref{fig:VCS} shows the metamodel of \textsf{VCS}, a simplified \DSL designed
+for the specification of Visual Concrete Syntaxes. It consists of a \textsf{Canva}
+of variable size where graphical elments (\textsf{GElement}) may be geometrically
+placed. A \textsf{GElement} follows the Composite Pattern \citep{B:Gamma-etAl:1995}:
+\textsf{Shape}s may be \emph{composed}, i.e. the \textsf{containee} is displayed
+\emph{inside} the \textsf{container} with specific alignment features. 
+
+A \textsf{Shape} is either a \textsf{Table}, a \textsf{TextBox}, or a 
+\textsf{Geometric} element, which is either a \textsf{Form} or a 
+\textsf{Connector}. Each \textsf{Shape} is inscribed into a bounding box with specific 
+dimensions that helps precisely positioning it on the \textsf{Canva}, and also
+defines specific features: for example, a Rectangle may define the thickness of its
+external box, and an Arrow may define different types and sizes for their heads.
+A \textsf{Shape} may also define a \textsf{Style} that can be \textsf{name}d and
+reused across other \textsf{Shape}s, to specify various features such as the background
+or line colour, the line transparency, etc.
+
+This metamodel captures insideness with \textsf{Composer}, and may easily be extended
+with additional \textsf{Shape}s that only need to be encapsulated in a box (thus,
+giving value to the attributes \textsf{length} and \textsf{height} in \textsf{Shape}).
+
+
+\begin{figure}[t]%
+   \centering
+   \includegraphics[width=\columnwidth,clip, trim=0cm 8cm 15cm 0.2cm]{VCS}%
+   \caption{\textsf{VCS}: A simplified \DSL for specifying \emph{V}isual \emph{C}oncrete \emph{S}yntaxes}%
+   \label{fig:VCS}%
+\end{figure}
+
+
+\subsection{Revisiting the \textsf{FSM}}
+\label{sec:Proposal-FSM}
+
 
 
 \subsubsection{Concrete Syntax}

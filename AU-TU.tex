@@ -1,3 +1,19 @@
 \subsection{Linking AUs and TUs}
 \label{sec:AUTU}
-We already assumed that AUs are ``mapped'' to specific TUs of the MT defininga \DSL's execution semantics. Depending on the underlying MTL, this mapping maybe given in two ways: by annotating the TUs with the information (typically,an AU name that allows to retrieve an associated MA specification); conversely,by annotating the AUs with the TUs they refer to; or using an explicit mapdefined outside both the MT and MA specifications. The first approach has alreadybeen successfully used for mapping TUs with debugging steps in \cite{bousse2018omniscient}.Relating AUs with TUs provides a simple advantage: since the MT already capturesthe internal logic and scheduling between TUs, no need to reproduce them for theAUs. However, this imposes that the execution engine is instrumented for enablingsimple communication with the MA engine. As a first starting step, adopting the generic interface for debugging proposed by \citet{bousse2018omniscient} provideswhat is necessary: it indicates the MA engine that a simulation has started andstopped, and that a TU has started (together with appropriate parameters) and stopped.
+
+We already assumed that AUs are ``mapped'' to specific TUs of the MT defining
+a \DSL's execution semantics. Depending on the underlying MTL, this mapping may
+be given in two ways: by annotating the TUs with the information (typically,
+an AU name that allows to retrieve an associated MA specification); conversely,
+by annotating the AUs with the TUs they refer to; or using an explicit map
+defined outside both the MT and MA specifications. The first approach has already
+been successfully used for mapping TUs with debugging steps in \cite{bousse2018omniscient}.
+
+Relating AUs with TUs provides a simple advantage: since the MT already captures
+the internal logic and scheduling between TUs, no need to reproduce them for the
+AUs. However, this imposes that the execution engine is instrumented for enabling
+simple communication with the MA engine. As a first starting step, adopting the 
+generic interface for debugging proposed by \citet{bousse2018omniscient} provides
+what is necessary: it indicates the MA engine that a simulation has started and
+stopped, and that a TU has started (together with appropriate parameters) and 
+stopped.
