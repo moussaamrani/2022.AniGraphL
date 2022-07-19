@@ -121,10 +121,8 @@ is \textsf{FINAL} when the \textsf{Word} becomes empty.
 \subsubsection{Animations}
 \label{sec:Examples:FSM:Animations}
 
-Typically, \textsf{accept} is implemented using a sub-transformation 
-\textsf{fire(e : Element) : State [0..1]} that determines which \textsf{State} 
-to update to when consuming an \textsf{Element} \textsf{e}.
-There is two categories of animations:
+There is typically two categories of related animations, one for showing the 
+progression on the word, the other showing the FSM's current state. 
 \begin{description}
    \item[FSM.1] A \textsf{Letter} is consumed from the \textsf{Word} being 
    accepted. This may be performed in two ways:
@@ -142,9 +140,9 @@ There is two categories of animations:
       \item[FSM.2] The token disappears from the \textsf{current} \textsf{State},
       and slides along the entire arrow of the fired \textsf{Transition}, then 
       appears in the updated \textsf{current};
-      \item[FSM.3] The token disappears from the \textsf{current} \textsf{State},
-      the arrow of the fired \textsf{Transition} blinks in red for 2 seconds, 
-      then the token reappears in the updated \textsf{current}.
+      \item[FSM.3] The fired \textsf{Transition} blinks in red for 2 seconds,
+      then the token disappears from the \textsf{current} \textsf{State},
+      then reappears in the target \textsf{State}.
    \end{description}
 \end{description}
 Note that here again, \textbf{FSM.1} and \textbf{FSM.2} are timely related, but 

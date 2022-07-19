@@ -45,11 +45,23 @@ all falls into the \emph{Action} effects category, because only the graphical
 features (or values) of the score label, the \textsf{Letter} and the color of the
 \textsf{Arc}(s) are modified. \autoref{fig:FSM_M} graphically illustrates,
 in the middle, an possible way to realise a \emph{Path Motion} effect. Finally,
-\emph{Creation} and \emph{Deletion} effects are combined to realise an complex 
+\emph{Creation} and \emph{Deletion} effects are combined to realise a complex 
 animation in \textsf{FSM.2.1}, \textsf{PM.1} and \textsf{PN.3.2}. 
 
 \subsubsection{UA Scheduling}
 \label{sec:MA-Scheduling}
+
+\begin{figure}[t]%
+   \centering
+   \includegraphics[width=\columnwidth,clip, trim=0cm 10cm 25cm 0.2cm]{UAScheduling}%
+   \caption{On top, scheduling is realised with \emph{embedding}: each AU has 
+   pre- (except the first) and post-conditions, represented as grey blocks attached 
+   before and after the AU. On bottom, the same animations but with UAs organised with
+   two combinators: \texttt{\textbf{||}} for parallel, and \texttt{\textbf{;}} for
+   sequential combinations (the temporal details are omitted).
+   }%
+   \label{fig:UA-Schedule}%
+\end{figure}
 
 Although theoretically equivalent, two approaches are possible for realising
 this requirement.
@@ -72,14 +84,6 @@ what is available in GPLs. However, the first approach may be more compact visua
 and familiar for MA designers accustomed to slideshow tools (the most popular and
 mainstream ones being Microsoft Powerpoint, Apple Keynote and Google Slides, among
 a plethora of other dedicated tools, many of which only existing online).
-
-\begin{figure}[t]%
-   \centering
-   %\includegraphics[width=\columnwidth,clip, trim=0cm 13.8cm 8.3cm 0.2cm]{FSM-Initial}%
-   \caption{Two ways for UA scheduling: using embedding (left), and combinators (right).
-   }%
-   \label{fig:UA-Schedule}%
-\end{figure}
 
 Note that both approaches may concurrently exist, allowing MA designers to choose
 the most appropriate approach for specifying their MA. It is left as future work
