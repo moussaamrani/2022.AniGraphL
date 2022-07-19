@@ -23,7 +23,7 @@ represented as a circle, a \textsf{Transition} as a black thin box, and an
 \begin{figure}%
    \includegraphics[width=\columnwidth,clip, trim=0cm 12.5cm 19.7cm 0cm]{PN_MM}%
    \caption{A metamodel for Place/Transition Petri Nets.}%
-   \label{fig:FSM_MM}%
+   \label{fig:PN}%
 \end{figure}
 
 
@@ -45,10 +45,9 @@ may not fire, denoting concurrency and non-determinism.
 \subsubsection{Animations}
 \label{sec:Examples:PN:Animations}
 
-Typically, the execution semantics is implemented with a transformation unit 
-\textsf{step} that would select one enabled \textsf{Transition} among all possible,
-and \textsf{fire} it. The execution stops when no \textsf{Transition}s are enabled
-any more. There is several possibilities for animation.
+The animations are similar to the ones for the \textsf{FSM} \DSL, except that 
+\textsf{Place}s may host multiple \textsf{marking}s, and that the \textsf{Transition}s
+do not hold them. We highlight some variants for animating \textsf{PN}s.
 
 \begin{description}
    \item[PN.1] Highlight all \textsf{Transition}s that are enabled;
