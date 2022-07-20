@@ -1,2 +1,63 @@
 \section{Introduction}
 \label{sec:Introduction}
+
+Debuggers are critical tools for Software Development in general, and for 
+Domain-Specific Languages (\DSLs) in particular, because they allow programmers
+to inspect the internals of their programs in order to get a better understanding
+of their execution, and therefore to locate the source of errors and malfunctions.
+While investing the time and efforts in developping debuggers, but more generally
+analysis tools, for general-purpose programming languages is easily comprehensible
+because of their large audience, the same question for \DSLs is not that trivial.
+In recent years, many efforts have been invested in defining guidelines for the
+systematic design and development of debuggers, but also other analysis tools 
+requiring specific languages modellers would need. These guidelines are currently
+supported by tooling that helps implement and build the necessary artefacts in a
+shorten time, and with greater accuracy.
+
+A complementary, lightweight approach for providing modellers techniques and 
+approaches that improve the quality and the correctness of their \DSLs is the 
+adoption of Model Animation (MA). This is especially true for expertise domains 
+with a canonical visual representation: experts communicate daily using a specific
+concrete syntax, and getting the ability to actually \emph{see} their models 
+animated during a Model Transformation (MT), provides an insight and feedback 
+about what is going on during transformation that may surpass debugging, in 
+particular for experts that have little background in programming.
+
+MA is defined as the capacity to bring a ``\emph{visual representation for [MT] 
+simulation[s]}'' \cite{J:Lucio-Amrani-etAl:2014}. MA, as part of the \DSL development
+environment, serves several purpposes. It helps \emph{MT designers} understand, trace, 
+monitor, and ultimately debug their specification (although in constrast to 
+``pure'' debugging, relying on visual clues). It also allows modellers to understand,
+analyse, and predict what their models do by relying on visual information. 
+
+MA provides visualisation of a \DSL's \emph{execution}, thus requiring three preliminary
+ingredients: (i) a visual representation associated to a model, expressed in a 
+graphical framework that supports live animation; (ii) the precise specification
+of the \DSL's intended behaviour, with clearly identified ``steps'' where animations
+are hooked; and (iii) an MA engine that would \emph{dynamically} and \emph{visually}
+render the behaviour, by putting into motion the attached visual representations.
+Many tools, such as eProvide \citep{Sadilek-Wachsmuth:2008}, GeMoC \citep{combemale2016tool}
+or ProB \cite{leuschel2008prob}, allow the specification of these key ingredients.
+However, they do not target the systematic engineering of MA, nor do they allow
+large reuse of the underlying artefacts, constraining \DSL engineers to redefine
+the internals of their animations every time.
+
+This paper is a first step towards the systematic engineering of MA, where we 
+identify the key components for designing MA tools, and formulate three challenges
+related to the preliminary ingredients described above: how to model a concrete 
+syntax in sufficient details so that an MA is able to dynamically manipulate its
+components to reflect a \DSL execution; how to explicitly model animation, in a way
+that allow reuse of MA artefacts across many \DSLs that have similar animation patterns;
+and how to explicitly connect the animation artefacts with the MT capturing the
+\DSL behaviour so that both work in concert, the MT manipulating the model and 
+the MA visually representing those transformations (steps).
+
+The paper is organised as follows. We start clarifying the notion of MA with regards
+to closely related notions such as visualisation and simulation in \S \ref{sec:Motivation},
+and clarify the requirements over MA, culminating in a clear formulation of three
+Challenges. Section \ref{sec:Examples} describe three different \DSLs with 
+various associated animations, that serve as examples. We then review the challenges,
+and identify key ingredients for each that would support the ability to build
+an MA tool. We then formulate a partial proposal in \S \ref{sec:Proposal},
+and show on the examples how it answers the requirements. We discuss related work
+in \S \ref{sec:RW} and terminate with concluding remarks in \S \ref{sec:Conclusion}.
