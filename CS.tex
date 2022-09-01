@@ -1,18 +1,18 @@
 \subsection{Concrete Syntax (CS)}
 \label{sec:CS}
 
-The first challenging component concerns the visual Concrete Syntax (CS), which
-is related to a \DSML's metamodel \textsf{MM} through two transformations:
+The first challenge, Concrete Syntax (CS), is related to a \DSML's metamodel 
+\textsf{MM} through two transformations:
 
 $$ \mathsf{MM} \xrightleftharpoons[\mathrm{parsing}\phantom{MM}]{\phantom{MM}\mathrm{rendering}} \mathsf{CS}$$
 
-In syntax-directed editing, the \emph{parsing} MT is not necessary because models
+In syntax-directed editing, \emph{parsing} is not necessary because models
 are created by relying on the syntax, thus preventing ill-models. On the other hand,
-the \emph{rendering} MT is crucial for representing a model when appropriate, but
+\emph{rendering} is crucial for representing a model when appropriate, but
 it also represents the anchor for animation. 
 
 
-Having explicit MT between \textsf{MM} and \textsf{CS} assumes indeed that 
+Having explicit MTs between \textsf{MM} and \textsf{CS} assumes indeed that 
 \textsf{CS} is explicitly metamodelled: following the \MDE methodology, such
 a \DSL should cover the definition of visual representations (geometric shapes as
 well as various data structure representations such as tables, graphs, etc.),
@@ -23,11 +23,14 @@ We identified at least four challenges:
 \begin{figure}[t]%
    \centering
    \includegraphics[width=\columnwidth,clip, trim=0cm 13.8cm 8.3cm 0.2cm]{FSM-Initial}%
-   \caption{Three different ways of modelling the \emph{initial} \textsf{State} 
-   for an \textsf{FSM}: by explicit references \texttt{initial} (and \texttt{final})
-   on the left; by the distinguishing property \texttt{kind} in the middle; and
-   by using inheritance on the right.}%
+   \caption{Modelling a \textsf{State} in \textsf{FSM}: with explicit references
+   \texttt{initial} and \texttt{final} (left); with a distinguishing property 
+   \texttt{kind} (middle); and with inheritance (right).}%
    \label{fig:FSM-Initial}%
+   \Description[Different ways of modelling \textsf{FSM}'s \textsf{State}s.]{%
+   A \textsf{State} is modelled with explicit references, with a distinguishing 
+   property in \textsf{State} specifying, with an enumeration, the different 
+   \textsf{kind}s, and with inheritance.}
 \end{figure}
 
 \begin{description}
@@ -40,10 +43,10 @@ We identified at least four challenges:
 
 	\item[CS.2. Providing \emph{complex} rendering patterns.]
    Consider the (partial) meta\-models in \autoref{fig:FSM-Initial} that
-   specify the \emph{initial} \textsf{State} in four different ways: by pointing
-   to the appropriate \textsf{State}, by characterising each \textsf{State} with
+   specify the \emph{initial} \textsf{State} in four different ways: by referencing
+   to the appropriate \textsf{State} among those available, by characterising each \textsf{State} with
    a property \textsf{kind}, or by using type inheritance. Many tools would only
-   support the last metamodelisation, because they essentially only allow to 
+   support the latter, because they essentially only allow to 
    associate various icons to classes. This approach is too simplistic and forces
    metamodel designers to tweak their metamodels towards MA, introducing yet another
    metamodel specialisation (as it is already the case for model editing and
@@ -54,7 +57,7 @@ We identified at least four challenges:
    \item[CS.3. Integrating ``insideness'' \emph{natively}] We call \emph{insideness}
    the visual equivalent of \emph{containment} in metamodelling, i.e. the ability
    to uniquely put elements \emph{inside} inside a container so that elements 
-   inside disapear along with the container's removal. This feature presents two
+   inside disappear along with the container's removal. This feature presents two
    advantages. First, it would allow to natively handle common situations like 
    including text inside a shape (e.g. displaying a \textsf{State}'s name within
    the circle for an \textsf{FSM}) and then treat them in an universal manner. 
@@ -69,8 +72,8 @@ We identified at least four challenges:
    for defining CSs brings the ability to \emph{visually} render metamodels, but
    does not guarantee the ability to perform animation. For that, the \DSL should
    natively support the fast update of visual features that compose the CS (e.g.,
-   the position, size, color, type of line of an arrow representing a 
-   \textsf{Transition} for the \textsf{FSM}).      
+   the position, size, color, type of line for an \textsf{FSM}'s 
+   \textsf{Transition}).      
 \end{description}
 
 

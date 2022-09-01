@@ -34,17 +34,9 @@ fit our definition of MA, it is interesting because it highlights the importance
 of properly identifying what a dynamic state is, and the possibility to reuse
 the MA engine for different purposes. Several contributions follow this approach
 \cite{J:Hegedues-Rath-Varro:2012,Guin-Syriani:2013,idani2021formal}, with different
-MT languages.
-
-Modelling \& Simulation \cite{B:Birta-Arbez:2019} is a closely related research 
-area addressing large Cyber-Physical Systems, where the behaviour is usually expressed
-through formalisms that include real-time, and sometimes continuous space variables,
-based on physical phenomena that require complex behaviour captured through, among
-others, differential equations. Although the behaviour of such systems is clearly
-out of scope of \MDE, the tools supporting these specifications often propose 
-\emph{visual} simulation (e.g. Ansys Simplorer, 20-sim, MapleSoft MapleSim, etc.)
-They do not strictly compare to our proposal, but many ideas and concerns from the
-literature of this research area may help designing better animators. 
+MT languages. Since our approach promotes decoupling transformations from animations,
+our vision allows to disconnect the original animations used when collecting information,
+from the animations used afterwards, when the animation is replayed offline. 
 
 Debugging, and in particular omniscient debugging 
 \citep{bousse2018omniscient,J:Corley-Eddy-Syriani-Grey:2016,J:VanMierlo-Vangheluwe-etAl:2020},
@@ -61,3 +53,14 @@ when annotation steps are reached. \citet{J:VanMierlo-Vangheluwe-etAl:2020} prov
 a reusable architecture and an explicitly modelled workflow to support debuggers
 construction. An interesting feature is the ability to rely on a visual representation
 of the models being simulating, thus providing a form of animation.
+
+Modelling \& Simulation \cite{B:Birta-Arbez:2019} is a closely related research 
+area addressing large Cyber-Physical Systems, where the behaviour is usually expressed
+through formalisms that include real-time, and sometimes continuous space variables,
+based on physical phenomena that require complex behaviour captured through, among
+others, differential equations. Although the behaviour of such systems is clearly
+out of scope of \MDE, the tools supporting these specifications often propose 
+\emph{visual} simulation (e.g. \textsc{Ansys} Simplorer, 20-sim, MapleSoft MapleSim, etc.)
+They do not strictly compare to our proposal, but many ideas and concerns from the
+literature of this research area may help design better animators. 
+

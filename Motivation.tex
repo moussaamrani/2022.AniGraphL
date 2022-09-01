@@ -38,10 +38,10 @@ For an input model \textsf{M},
    
    \item[Simulation] is an intent characterising an inplace, endogeneous MT aiming
    at defining \textsf{M}'s operational semantics, i.e. how \textsf{M} evolves 
-   over time during executed.
+   over time during execution.
    
    \item[Animation] is ``\emph{the visual representation of a simulation}'' 
-   \citep{J:Lucio-Amrani-etAl:2014}, i.e. it visually renders the computations steps
+   \citep{J:Lucio-Amrani-etAl:2014}, i.e. it visually renders the computation steps
    defined by the MT simulation specification, by visually projecting the changes
    operated on the simulated model through its (visual) concrete syntax.
 \end{description}
@@ -84,7 +84,7 @@ should be completely decoupled from the specification of (and languages for) TUs
 As they serve a common purpose, a mechanism for explicitly relating UAs to corresponding
 TU(s) is required for this vision to work: when the execution engine of the MTL
 executes a TU, it passes information to the MA engine to concurrently run the
-animation. This vision is directly inspired by how existing methodologies for designing 
+animation. This vision is directly inspired by existing methodologies for designing 
 debuggers for MTLs \citep{bousse2018omniscient,J:VanMierlo-Vangheluwe-etAl:2020}:
 to avoid inspecting models that may be inconsistent during the execution of a TU,
 a so-called debugging \emph{step} is defined by annotating TUs relevant for inspection.
@@ -96,13 +96,15 @@ in \autoref{fig:TU-AU}
 	\item A TU may be connected to several AUs, in order to provide different abstraction
    levels, and multiple views on the same execution (part). Typically, a beginner
    may need detailed visual information to understand a specific part of a model's
-   execution, while a more advanced user may be happy with minimal animation.
+   execution, while a more advanced user may be happy with minimal animation. We
+   illustrate this by providing several animations for typical \DSLs in \S \ref{sec:Examples}.
 
-   \item An AU may be connected to several TUs, likely integrated in simulations
+   \item An AU may be connected to many, but different, TUs, likely integrated in simulations
    for different models. Associated with appropriate composition operators, this
    approach promotes the definition of AUs libraries that capture popular and 
    widely used animation \emph{patterns}, thus enabling modularity and reuse 
-   across \DSLs.
+   across \DSLs. We show in \S \ref{sec:Param} how similar AUs may be reused for
+   rendering different MTs.
 \end{itemize}
 
 \begin{figure}[t]%
@@ -110,6 +112,10 @@ in \autoref{fig:TU-AU}
    \caption{Relationship between Transformation (TU) and Animation (AU) Units for
    promoting multi-abstraction, and reuse.}%
    \label{fig:TU-AU}%
+   \Description[Relating Transformation Units with Animation Units]{%
+   For promoting multi-abstraction and reuse, Transformation Units (TUs) are in
+   a N:N relationship with Animation Units (AUs).
+   }
 \end{figure}
 
 To summarise our vision for enabling a systematic design of MA, we assume that a 
@@ -126,10 +132,11 @@ for an MA Engineer, would be the following:
    concrete syntax that exposes the graphical features to the MA designer is 
    required.
    
-   \item[C2.] How to explicitly model an MA compositionally, i.e. by creating an
+   \item[C2.] How to explicitly model an MA \emph{compositionally}, i.e. by creating an
    MA using basic components that are progressively composed in a fully-fledged
-   animation representing the \DSL's behaviour visually? 
+   animation? 
    
-   \item[C3.] How to explicitly map TUs describing a \DSL's behaviour with the
-   appropriate AU(s)? 
+   \item[C3.] How to abstract away from the peculiar details of a given \DSL, thus
+   promoting \emph{reuse}, and to explicitly map TUs with their related AU(s), to
+   support \emph{flexibility}?
 \end{description}

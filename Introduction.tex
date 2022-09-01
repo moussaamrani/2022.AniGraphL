@@ -5,7 +5,7 @@ Investing the time and efforts to develop the tooling associated with general-pu
 programming or modelling langages, such as analysers, debuggers, and testing
 frameworks, is a no-brainer, because of the large audience it will benefit.
 The same question for Domain-Specific (Modelling) Languages (\DSMLs) has a
-way more mitigated answer. For example, in recent years, many efforts have been
+more mitigated answer. For example, in recent years, many efforts have been
 invested in defining guidelines for the systematic design and development of 
 \DSL debuggers 
 \cite{bousse2018omniscient,J:VanMierlo-Vangheluwe-etAl:2020,J:Corley-Eddy-Syriani-Grey:2016},
@@ -41,21 +41,21 @@ included a ``visual debugger'', which required to alter the \DSL metamodel to
 accommodate with the debugging logic, and relied on simple graphical components.
 More recently, GeMoC \citep{combemale2016tool} and AtoMPM \cite{Syriani-Vangheluwe-etAl:2013}
 are two well-established \DSL frameworks that both integrate debugging and MA. 
-The animators are tightly coupled with the underlying MT language (although GeMoC
-offers several ones, namely Kermeta and Xtend) for performing animation, since the
+The animators are tightly coupled with the underlying MT Language (MTL) for 
+performing animation (although GeMoC offers several ones, namely Kermeta and Xtend), since the
 execution engine is instrumented to stop at specific locations in the MT to perform
 animation pieces. An interesting feature of AtoMPM is the ability to take advantage
 of the concrete syntax to express the MT rules themselves, reducing the gap between
 MT specification and MA. Other tools based on formalisms that have native graphical
 representations (such as Finite State Machines and Petri Nets) offer animators
 with little extra efforts since the MT is directly expressed using the visual MT,
-whose execution is simply rendered visually. These tools force MT designers to 
+whose execution is simply rendered visually. However, these tools force MT designers to 
 specify their transformations in a formalism that does not directly manipulate their
 metamodel's features. 
 
 Although these tools all represent interesting steps and real progress in the matter
-of MA, they sometimes lack flexibility in the MA specification, and reuse of MA
-units across \DSLs. 
+of MA, they sometimes lack \emph{flexibility} in the MA specification, and 
+\emph{reuse} of MA units across \DSLs. 
 In this paper, we take a first step towards the systematic engineering of MA, by
 identifying key components for designing MA tools, such that they ensure our
 required properties of flexibility and reuse. We formulate three challenges that
@@ -67,11 +67,11 @@ can help with these requirements.
 
 The paper is organised as follows. We start in \S \ref{sec:Motivation} by clarifying
 the notion of MA in contrast to closely related notions, and motivate our challenges
-with concrete situations. We then review some popular \DSLs and devise a family
-of animation for each of them, showing that animation should be left as a design
-choice, instead of being forced by an execution engine. We then review the challenges
-in \ref{sec:Challenges}, and identify key ingredients for each that would support
-the ability to build animators.
+with concrete situations. We review in \S \ref{sec:Examples} some popular \DSLs,
+and devise a family of animation for each of them, showing that animation should
+be left as a design choice, instead of being forced by an execution engine. 
+We then revisit the challenges in \S \ref{sec:Challenges}, to identify key 
+ingredients for each of them that would support the ability to build animators.
 To conceptually meet the challenges, we formulate a (partial) proposal in \S 
 \ref{sec:Proposal} and show on our example \DSLs how some of the challenges find
 an interesting answer. Finally, we discuss Related Work in \S \ref{sec:RW} before

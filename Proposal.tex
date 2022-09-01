@@ -1,15 +1,12 @@
 \section{Proposal}
 \label{sec:Proposal}
 
-This Section wraps up the previous considerations by making a partial proposal
+We finally wrap up the previous considerations by making a partial proposal
 for the missing elements, so that it becomes possible to demonstrate that our vision
-works. We demonstrate that it becomes possible to specify MAs independently of the
-MT specifying a \DSL's execution semantics; that several MAs may be linked to
+works. We demonstrate that (i) it becomes possible to define MAs independently of the
+MT specifying a \DSL's execution semantics; that (ii) several MAs may be linked to
 the same MT for animating a model according to the viewer's preferences; and finally
-that MAs may be reused accross \DSLs.
-
-%We start by specifying a prototype metamodel \textsf{CS} for specifying concrete
-%syntaxes explicitly. We then define 
+that (iii) MAs may be reused accross \DSLs.
 
 \subsection{\textsf{VCS}: A Visual Concrete Syntax \DSL}
 \label{sec:Proposal-VCS}
@@ -41,6 +38,9 @@ giving value to the attributes \textsf{length} and \textsf{height} in \textsf{Sh
    \includegraphics[width=\columnwidth,clip, trim=0cm 8cm 15cm 0.2cm]{VCS}%
    \caption{\textsf{VCS}: A simplified \DSL for specifying \emph{V}isual \emph{C}oncrete \emph{S}yntaxes}%
    \label{fig:VCS}%
+   \Description[VCS: A simplified DSL for defining Visual Concrete Syntaxes]{
+   VCS: A simplified DSL for defining Visual Concrete Syntaxes
+   }
 \end{figure}
 
 
@@ -55,8 +55,8 @@ giving value to the attributes \textsf{length} and \textsf{height} in \textsf{Sh
 
 The first step is to define a mapping from the \textsf{FSM} metamodel (cf. \autoref{fig:FSM_MM})
 to (a model of) \textsf{VCS}. Since defining the mapping rigorously requires the
-definition of a specific \DSL, we rely on the reader's intuition and explain 
-informally how it is done.
+definition of a specific \DSL, we rely on the reader's intuition and only explain 
+it informally.
 
 Following the traditional approach in \MDE, defining a mapping results in an 
 (semi-)automatically generated so-called \emph{palette} presenting to a modeller
@@ -101,22 +101,31 @@ fireable (i.e. \textsf{fire} does not return anything, in which case the
    
    \item The \textsf{fire} TU performs the same algorithm, except that it calls
    another TU \textsf{getEnabledTransition} that returns one (of the possible) matching
-   \textsf{TRansition}(s).
+   \textsf{Transition}(s).
 \end{enumerate}
 
 \begin{figure}[t]%
    \centering
-   \includegraphics[width=\columnwidth,clip, trim=0cm 11.5cm 22cm 0.2cm]{D_APP}%
-   \caption{\MA{LABL!!!} \textsf{VCS}: A simplified \DSL for specifying \emph{V}isual \emph{C}oncrete \emph{S}yntaxes}%
-   \label{fig:VCS}%
+   \includegraphics[width=0.9\columnwidth,clip, trim=0cm 11.5cm 22cm 0.2cm]{D_APP}%
+   \caption{\textsf{D\_APP}: Combining disappearance (\textsf{DAPP}) and appearance
+   (\textsf{APP}) in sequence (with combinator \textbf{\textsf{;}}), and routing
+   the parameters accordingly.}%
+   \label{fig:D_APP}%
+   \Description[The \textsf{D\_APP} Animation Unit.]{
+   \textsf{D\_APP} combines the animation units \textsf{DAPP}, for making an element
+   disappear \textsf{from} a location, with \textsf{APP}, for making an element appear
+   \textsf{to} a location. The parameters of \textsf{D\_APP} must be linked to
+   the subunits appropriately.
+   }
 \end{figure}
 
-We now define AUs for these two transformations. The animation \textsf{D\_APP}
-implements \textsf{FSM.2.1}: it makes the \textsf{Token}'s \textsf{Ellipse} 
-disappear from the current \textsf{State} (named \textsf{f}), then reappear 
-into the target one (named \textsf{t}). 
-The animation \textsf{BLINK} (in \autoref{fig:UA-Param})implements \textsf{FSM.2.3}:
-it makes the \textsf{Transition}'s \textsf{Connector} blink for 3 seconds.
+We now define AUs for those two transformations. The animation \textsf{D\_APP},
+depicted in \autoref{fig:D_APP}, implements \textsf{FSM.2.1}: it makes the 
+\textsf{Token}'s \textsf{Ellipse} disappear from the current \textsf{State} 
+(referenced as \textsf{f}), then reappear into the target one (named \textsf{t}). 
+Our previous AU \textsf{BLINK} presented in \autoref{fig:UA-Param} implements 
+\textsf{FSM.2.3}: it makes the \textsf{Transition}'s \textsf{Connector} blink 
+for 3 seconds. 
 With these definitions, we can proceed to the mapping between TUs and AUs:
 
 $$\begin{array}[t]{l}
@@ -130,9 +139,10 @@ $$\begin{array}[t]{l}
 	\mathsf{getEnabledTransition} &\mapsto& \mathsf{BLINK}	
 \end{array}$$
 
-Note that in this case, we chose to use models' elements: in order to appropriately
-identify them, the annotations on the TUs may explicitly indicate them, and even
-map them to the UAs' parameters. 
+Regarding parameterisation (cf. \S \ref{sec:Param}), we have chosen here
+the first approach using \emph{models' elements}. To properly identify which
+model elements participate in an AU, the TU annotations may explicitly list them
+for the MA designer to choose from.
 
 \subsubsection{Reusing AUs}
 \label{sec:Proposal-Reuse}

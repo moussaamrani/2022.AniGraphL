@@ -3,23 +3,19 @@ Model Animation (MA) is a practical technique for providing modellers and Model
 Transformation designers an insurance that their models behave as expected.
 This is specially relevant in expertise domains where models have a natural
 visual representation, i.e. a dedicated concrete syntax. 
-MA can be seen as the visual representation of Model Transformation simulation,
-it gives a visual counterpart to the changes and updates operated on a model
-during its execution. It supports Model Transformation designers understand, trace,
-monitor, and ultimately debug their specification using visual clues; it also
-helps modellers understand, and better grasp their models' behaviour by forming
-an intuition based on visual information.
+MA can be seen as the visual representation of Model Transformation simulation. 
+It supports Model Transformation designers understand, trace,
+monitor, and ultimately debug their specification using visual clues.
 
 In contrast to other techniques surrounding Model-Driven Engineering, MA has received
-way less attention, in contrast to, e.g. testing, debugging, and formal verification.
+less attention, in contrast to, e.g. testing or debugging.
 This paper is a first step towards the systematic engineering of model animators.
 It identifies three key challenges: (i) how to effectively, explicitly and precisely
-define the concrete syntax in a way that its internal graphical components become
-easily manipulable for expressing MA; (ii) how to build an MA language to express
+define the concrete syntax to enable MA; (ii) how to build an MA language to express
 animations units in a compositional way, so that animations become flexible in their
 definition, and reusable across several \DSLs; and finally (iii) how to explicitly
-relate MA units with their transformation counterparts, so that MA experts do not
-have to reinvent the transformation scheduling. 
+relate MA units with their transformation counterparts, to avoid reimplementing the
+transformation scheduling. 
 
 We analyse these challenges to extract some requirements for future animators,
 and give a partial conceptual proposal that fulfil them, paving the way towards

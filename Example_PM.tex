@@ -19,7 +19,7 @@ On the top right compartment, a basic model $\mathsf{M}_{\mathsf{2x2}}$ with a
 \textsf{unique} \textsf{Level} of size 2x2, as possibly created by a modeller,
 is depicted using three different concrete syntaxes:
 textual for $^{\mathsf{TXT}}\mathsf{M}_{\mathsf{2x2}}$ (inspired by eMotions 
-\cite{J:RiveraDuranVallecillo:2009}); based on UML Object Diagram for
+\cite{J:RiveraDuranVallecillo:2009}); based on UML Object Diagram 
 \cite{B:Rumbaugh-Jacobson-Booch:2004} for $^{\mathsf{OD}}\mathsf{M}_{\mathsf{2x2}}$;
 and freely inspired by the real game for $^{\mathsf{Viz}}\mathsf{M}_{\mathsf{2x2}}$,
 the two latters being graphical.
@@ -32,18 +32,21 @@ the two latters being graphical.
    designer specifies a transformation $\mathsf{TS}_{\mathsf{PM}}$ (composed of
    several transformation units such as \emph{\textsf{moveR}} depicted here).}
    \label{fig:PacMan}
-   \Description[<short description>]{<long description>}
+   \Description[Specification of a \DSL for PacMan.]{
+   A metamodel and a part of the model transformation for expressing the PacMan
+   \DSL behaviour, are described with different styles, and different representations.
+   }
 \end{figure*}
 
 \subsubsection{Execution}
 \label{sec:Examples:PacMan:Execution}
 
-PAcMan is a \emph{reactive} \DSL, i.e. it reacts to external stimuli given by a 
+PacMan is a \emph{reactive} \DSL, i.e. it reacts to external stimuli given by a 
 player deciding which way to go. 
 The bottom compartment of \autoref{fig:PacMan} describes a simple rule 
 \emph{\textsf{moveR}} (moving Pac-Man on a \textsf{Cell} at its right, if 
 available) as part of the simulation MT specification $\mathsf{TS}_{\mathsf{PM}}$,
-as part of $\mathsf{MM}_{\mathsf{PM}}$'s executable semantics. 
+implementing a fragment of $\mathsf{MM}_{\mathsf{PM}}$'s executable semantics. 
 The first MT, $\mathsf{TS}_{\mathsf{Xtend}}$, uses metaprogramming 
 (based on Xtend with GeMoC \cite{Leroy-Bousse-etAl:2017}). The next and last ones
 are based on Graph Transformations: $\mathsf{TS}_{\mathsf{GBT}}$ relies on 

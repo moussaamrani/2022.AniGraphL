@@ -1,20 +1,21 @@
 \section{DSL Examples}
 \label{sec:Examples}
 
-This Section presents three simple \DSMLs, namely \textsf{PacMan}, Finite State
+We now present three simple \DSMLs, namely \textsf{PacMan}, Finite State
 Machines (\textsf{FSM}), and Petri Nets (\textsf{PN}), following the same 
-presentation:
+outline:
 \begin{itemize}
 	\item The \DSL's structure is specified using a metamodel expressed in \MOF;
    we also informally specify a possible \emph{concrete syntax}, then provide a 
    simple witness model.
 
    \item The \DSL's semantics is sketched, without details of implementations that
-   highly depend on the MTL, and the modelling style of the MT designer. We however
-   show for the \textsf{PacMan} example how a similar approach in various MTLs 
-   may lead to a similar MT structure, independently of the underlying MTL.
+   highly depend on (i) the MTL used, and (ii) the modelling style of the MT designer. 
+   We however show how possible implementations in different MTLs, for \textsf{PacMan},
+   may lead to a similar MT structure (and TUs supporting animation), 
+   in a way that is agnostic of the underlying MTL.
 
-   \item A set of animations are then described in detail, and numbered for 
+   \item A family of animations are then described in detail, and numbered for 
    future reference.
 \end{itemize}
 Note that we assume that the \DSL structure follows the Executable \DSML Pattern
@@ -34,8 +35,8 @@ using \MOF's ``package merge'' approach \cite{TR:OMG-MOF:2016}, or other
 composition techniques \cite{J:Abouzahra-Sabraoui-Afdel:2020}).
 For clarity and presentation simplification purposes, we depicts both metamodels
 in a merged fashion, although we visually distinguish each part: the Domain Definition
-metamodel elements are represented using the regular font with plain arrows for 
-references; while the State Definition elements use curvy fonts and dotted references.
+metamodel elements are represented using the regular font with plain arrows for MOF 
+references; while the State Definition elements use curvy fonts and dotted MOF references.
 
 \input{Example_PM}
 \input{Example_FSM}

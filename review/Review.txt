@@ -1,0 +1,165 @@
+1. PLURAL
+3. Long sentences: start of the introduction, second paragraph of Background
+4. MTL abbrviation
+
+
+
+
+
+
+
+
+
+SUBMISSION: 0664
+TITLE: Towards The Systematic Design of Model Animation: Key Ingredients and General Guidelines
+
+
+----------------------- REVIEW 1 ---------------------
+SUBMISSION: 0664
+TITLE: Towards The Systematic Design of Model Animation: Key Ingredients and General Guidelines
+AUTHORS: Moussa Amrani, Abdelkader Ouared and Pierre-Yves Schobbens
+
+----------- Overall evaluation -----------
+SCORE: 1 (weak accept)
+----- TEXT:
+A research agenda for a systematic design of model animation is provided. Three challenges have been described and analyzed. Also, three case studies have been presented, discussing how the three open challenges could be relaxed or solved.
+
+The paper is well written and easy to follow. The topic is relevant for the workshop and can open an interesting discussion.
+However, a deeper discussion on every case study should be provided. Figure 3 helps understand the PacMan case study, while few details have been provided and discussed for the remaining case studies. Also, there are many figures, some of which are not discussed. For example, Figure 9 depicts the same objectives with two different views; their description is only on the caption.
+
+Section 5 "Proposal" should be improved. For example, the PacMan and the Petri Net case studies can be discussed in addition to the Finite State machine case study.
+
+Labels of figures should be improved, e.g.,  Figure 1 labels are too small. An improvement can be to increase the font. In addition, subfigures can be used, and it allows referring to the subfigure directly (e.g., Figure 1 (left) --> Figure 1.a).                   
+
+Authors have overused acronyms.
+
+Figure 12 on page 8 should be Figure 11, and thus Figure 12 is not discussed.
+
+
+
+----------------------- REVIEW 2 ---------------------
+SUBMISSION: 0664
+TITLE: Towards The Systematic Design of Model Animation: Key Ingredients and General Guidelines
+AUTHORS: Moussa Amrani, Abdelkader Ouared and Pierre-Yves Schobbens
+
+----------- Overall evaluation -----------
+SCORE: 1 (weak accept)
+----- TEXT:
+Practical applicability of modeling languages is often restricted by the lack of appropriate tools. Systematically engineering (parts of) tools can reduce the effort and thus support the development of DMSLs. The present paper addresses the component of model animation, where model transformations are visually represented for a more intuitive understanding. Hence, the topic fits very well to the MLE workshop.
+
+The paper motivates the need for modular MA tools well and derives a basic set of animations based on three small DSLs. It then discusses challenges and approaches for some of the challenges. The example DSLs are well-suited for illustrating the specification of the abstract and concrete syntax and potential animation needs. They are sufficiently different in nature to allow a comparison.
+
+The applicability for realistic (and typically more complex) DSLs should be commented more extensively. The conclusions only note that elementary animation units "... should appear in bigger ones as well" regarding more complex DSLs. However, many existing approaches have limited application by DSL engineers due to their limited configurability. A thorough evaluation with real DSLs is preferable but would be out of the scope for this workshop paper. It is therefore recommended to more carefully evaluate the limitations of the proposed approach.
+
+After reading the paper, it remains unclear how the technical implementation of a reusable MA approach could look like. Many existing solutions for DSL tools are poorly integrated and can only be used with certain technologies, which limits their practical applicability.
+
+The paper is readable although some parts could be written more clearly.
+- The related work section should be better structured.
+- A lot of abbreviations are used.
+- Regarding formatting, the font used for italic text is difficult to read. The text in Fig. 1 is small and hard to read.
+- A lot of errors regarding singular/plural (one of the first tool, AUs libraries, computations steps, we depicts,
+- Some other errors should be fixed as well: during executed., PAcman, stricken, Not that
+- When referring to sections, many different notations are used (in 4, in §4, in Section 4). This slows reading unnecessarily.
+- Some sentences are long and hard to understand. For instance, the start of the introduction, second paragraph of Background,
+- Define MTL abbreviation
+
+
+
+----------------------- REVIEW 3 ---------------------
+SUBMISSION: 0664
+TITLE: Towards The Systematic Design of Model Animation: Key Ingredients and General Guidelines
+AUTHORS: Moussa Amrani, Abdelkader Ouared and Pierre-Yves Schobbens
+
+----------- Overall evaluation -----------
+SCORE: 0 (borderline paper)
+----- TEXT:
+The paper works out the notion of model animation (MA) in several dimensions:
+* contrast/integrate with notions of model visualization and simulation;
+* relate to other concepts in MDE such as debugging;
+* clarify the need and opportunity to decouple MT and MA;
+* identify and address challenges related to concrete syntax (CS) in this content;
+* aim at modularity of MA coming up with units (AUs or DAs) comparable to transformation units (TUs);
+* provide linguistic means to map TUs to AUs;
+* identify limitations in this context;
+* make a proposal to illustrate a feasible improvement in terms of the aforementioned challenges.
+
+I am lukewarm on this paper because I feel that it could benefit from a revision and perhaps some extra elements of validation which would make it more solid material.
+
+See many observations/questions to follow.
+
+
+* p. 3: "An AU may be connected to several TUs, likely integrated in simulations
+for different models. Associated with appropriate composition operators, this
+approach promotes the definition of AUs libraries that capture popular and
+widely used animation patterns, thus enabling modularity and reuse across Dsls."
+Clarify at the MM level how this is assumed to be possible. That is, how can we
+serve different models (metamodels, modeltransformations) with a given TU?
+Perhaps this gets a bit clearer later, but some structural argument here would
+help because it sounds puzzling otherwise.
+
+* p. 4: Re "PM.2 and PM.3 need to be conducted sequentially quickly enough to
+not notice a time gap." It could be very well that we do want to observe a delay
+between the two events. What's missing here though is that PacMac relies on some
+sort of update rate (i.e., constant speed of entities moving). What's also not
+really discussed, as far as I can see, is the provision/handling of user input -
+- especially in an interactive manner.
+
+* p. 4.: Re: "Finite State Machines (FSM) represent a common Dsl for captur- ing
+state-based behaviour of various biological, but also computa- tional domains
+(e.g. Turing Machines,"  Excuse, what have FSMs and Turing machines have to do
+with each other!?!?
+
+* p. 6: Re "CS.1. Providing simple visualisation of data structures." *1 Do we
+assume that the MM of CS relies more likely on data structures (such as
+collections) than the MM of the DSL — which may use designated model elements
+and associations (including composition instead)?
+
+* p. 6: Re "CS.2. Providing complex rendering patterns. [...] by pointing to the
+appropriate State," What is meant here by "pointing" to the appropriate state?
+Almost sounds like a dynamic feature which would change the language. I
+understand the other two options: inheritance and property.
+
+* p. 6: Re "CS.3. Integrating “insideness” natively" Is it fair to say that such
+containment is essentially a variation on "rendering data structures" (CS.1)
+when we assume that we have to deal with containers (tuples, lists, perhaps
+nested)?
+
+* p. 7.: Re "CS.4. Providing “snapping” capabilities Snapping helps precise- ly
+arrange graphical elements by “gluing” them to a specific target, e.g. a canva’s
+boundary, a grid, or points on objects." This sounds more like a rendering
+issue?! Example welcome.
+
+* p. 7: Re "CS.6.Supporting animations natively. [...] support the fast update
+of visual features that compose the CS (e.g., the position, size, color, type of
+line of an arrow representing a Transition for the FSM)." Sounds a bit more like
+in-place now (or diff-based).
+
+* p. 8: End of Section 4.3 explains two options and then seems to discuss an
+example? Which option is this? This part isn't clear.
+
+* p. 8/Figure 10: The metamodel underlying this figure isn't clear? What is
+this?
+
+* p.8/Section 5: What sort of proposal is this really in terms of
+"mechanization"? How can this count as validation?
+
+* p. 9/Figures 11 and 12: Same caption; say more clearly what is shown in the
+figures. I am lost a bit.
+
+* p. 2: Re "However, MTs are likely specified independently of any MA, primarily
+for capturing the Dsl’s behaviour, but also likely for supporting other
+activities (typically, code generation, and various analyses, among others)." Is
+fair to assume that the authors want MA to be applied only to those Mts that
+specify dynamic behavior? Are they saying that application of MA to a code
+generator also makes sense? Are they saying that a MT may serve both dynamic
+behavior and code generation? This is a bit confusing. 
+
+* p. 2: Re "Visualisation is an intent characterising an outplace, heterogen-
+eous MT aiming at visually representing, or rendering," Wouldn't we ultimately
+want a more incremental rendering semantics for visualization?
+
+Language/typos:
+* " It supports Model Transformation designers under- stand,"
+* "has a way more mitigated answer."
+* "how M evolves over time during executed."
+* "which may occur by either Per- sona making a move to an already occupied Cell." -- or missing
