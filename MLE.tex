@@ -1,25 +1,23 @@
-\documentclass[sigconf%,review%,anonymous
-]{acmart}
+\documentclass[sigconf]{acmart}
 
 %% Rights management information.  This information is sent to you
 %% when you complete the rights form.  These commands have SAMPLE
 %% values in them; it is your responsibility as an author to replace
 %% the commands and values with those provided to you when you
 %% complete the rights form.
-\setcopyright{acmcopyright}
-\copyrightyear{2018}
+\setcopyright{acmlicensed}
+\copyrightyear{2022}
 \acmYear{2022}
-\acmDOI{XXXXXXX.XXXXXXX}
+\acmDOI{10.1145/3550356.3561607}
 
 %% These commands are for a PROCEEDINGS abstract or paper.
-\acmConference[MoDELS-C]{the 25th ACM/IEEE International Conference on Model-Driven
-Engineering Languages and Systems: Companion Proceedings}
-{October 23rd--28th, 2022}{Montréal, Canada}
-%\acmPrice{15.00}
-\acmISBN{978-1-4503-XXXX-X/18/06}
+\acmConference[MODELS '22 Companion]{ACM/IEEE 25th International Conference on Model Driven Engineering Languages and Systems}
+{October 23--28, 2022}{Montreal, QC, Canada}
+\acmPrice{15.00}
+\acmDOI{10.1145/3550356.3561607}
+\acmISBN{978-1-4503-9467-3/22/10}
 
-\usepackage{paralist,enumitem}
-%\usepackage{anyfontsize}
+\usepackage{enumitem}
 \usepackage{subcaption}
 
 \graphicspath{{img/}{pdf/}}
@@ -34,29 +32,13 @@ Engineering Languages and Systems: Companion Proceedings}
 
 % Figures and stuff
 \usepackage{graphicx}
-\usepackage{boxedminipage}
 \graphicspath{{img/}}
 
 
 
 
 %%%%% COMMENT SYSTEM %%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{ifthen}
 \usepackage{xcolor, color}
-\newboolean{showcomments}
-\setboolean{showcomments}{true} % toggle to show or hide comments
-\ifthenelse{\boolean{showcomments}} 
-{\newcommand{\nb}[2]{
-\fcolorbox{gray}{yellow}{\bfseries\sffamily #1}
-{$\blacktriangleright$#2$\blacktriangleleft$}
-}
-\newcommand{\version}{\emph{\scriptsize$-$working$-$}}
-}
-{\newcommand{\nb}[2]{} 
-\newcommand{\version}{}
-}
-\newcommand\AO[1]{\nb{Abdel}{\textcolor{teal}{#1}}}
-\newcommand\MA[1]{\nb{MA}{\textcolor{blue}{#1}}} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% MACROS %%%%%%%%%%%%%%%%%%%%%
@@ -108,7 +90,7 @@ Engineering Languages and Systems: Companion Proceedings}
 \begin{document}
 
 \title[Towards The Systematic Design of Model Animation]
-{Towards The Systematic Design of Model Animation:\\ Key Ingredients and General Guidelines}
+{Towards The Systematic Design of Model Animation: Key Ingredients and General Guidelines}
 \author{Moussa Amrani}
 \email{Moussa.Amrani@unamur.be}
 \orcid{1234-5678-9012}
