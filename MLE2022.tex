@@ -49,6 +49,10 @@
 \hyphenation{com-po-nents}
 \hyphenation{eu-ro-pean}
 \hyphenation{tech-no-lo-gy}
+\hyphenation{ap-proach}
+\hyphenation{Pro-vi-ding}
+\hyphenation{pro-vi-ding}
+
 
 \newcommand{\AD}{\textsc{AD}\xspace}
 \newcommand{\CBD}{\textsc{CBD}\xspace}
@@ -85,6 +89,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{csquotes}
+\usepackage{microtype}
 
 
 \begin{document}
@@ -94,9 +99,27 @@
 \author{Moussa Amrani}
 \email{Moussa.Amrani@unamur.be}
 \orcid{1234-5678-9012}
+\affiliation{%
+  \institution{Faculty of Computer Science / NaDI, University of Namur}
+  \streetaddress{Rue Grandgagnage, 21}
+  \city{Namur}
+  \country{Belgium}
+  \postcode{5000}
+}
+
 \author{Abdelkader Ouared}
 \email{Abdelkader.Ouared@unamur.be}
+\orcid{0000-0003-1837-832X}
+\affiliation{%
+  \institution{Faculty of Computer Science / NaDI, University of Namur}
+  \streetaddress{Rue Grandgagnage, 21}
+  \city{Namur}
+  \country{Belgium}
+  \postcode{5000}
+}
+
 \author{Pierre-Yves Schobbens}
+\orcid{0000-0001-8677-4485}
 \email{Pierre-Yves.Schobbens@unamur.be}
 \affiliation{%
   \institution{Faculty of Computer Science / NaDI, University of Namur}
@@ -154,9 +177,9 @@
 \input{Challenges}
 \input{Proposal}
 \input{RW}
-\input{Conclusion}
-\newpage
 \balance
+\input{Conclusion}
+
 \bibliographystyle{plainnat}
 \bibliography{./MLE}
 \end{document}
