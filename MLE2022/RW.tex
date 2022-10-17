@@ -1,0 +1,66 @@
+\section{Related Work}
+\label{sec:RW}
+
+MA is integrated in various tools that differ in the way the underlying MT is specified.
+GeMoC \citep{combemale2016tool} relies on Obeo Sirius for performing the MA of 
+\DSLs whose behavioural semantics is expressed in the Kermeta3 or Xtend languages.
+AtoMPM \cite{Syriani-Vangheluwe-etAl:2013} supports the specification of MTs
+based on Graph Rewriting, and provides support for specifying a concrete syntax
+for a \DSL that allows to both express MT rules using the concrete syntax (by
+relying on the RAMification process \cite{Kuehne-Mezei-etAl:2009}), and to 
+debug and animate a model. Earlier, \citet{Sadilek-Wachsmuth:2008} proposed eProvide,
+an Eclipse-based tool that, given the specification of the ``runtime state''
+and a visual concrete syntax, automatically generates a visual interpreter and a 
+visual debugger for executing a \DSL. ProB \cite{leuschel2008prob} is a model-checker
+and visualiser for B specifications. It has been used in Meeduse \cite{idani2020meeduse},
+an visualiser and analyser for \DSLs whose semantics is specified with B, and allows
+step-by-step execution and animation.
+
+Many frameworks that allow modellers to express \DSL semantics using formalisms
+that natively have a visual representation provide animators for free. Such examples
+include Finite-State Machines \cite{Das2016SupportingTM,Goldsby-etAl:2006,Bandener-etAl:2010}
+and Petri Nets \cite{mosteller2019integrated,Palanque-etAl:2009,Wimmer-etAl:2009}.
+Although the animation facilities are greatly simplified, this approach does
+not support domain-specific visual concrete syntax: the animation is realised 
+directly on the underlying formalism, preventing flexibility and adaptivity.
+
+MA can also be performed \emph{offline}, i.e. aside from the MT execution itself.
+In this case, information about one, or several, execution(s) of a \DSL need to
+be collected beforehand, and ``replayed'' by the MA engine in order to visually
+represent the execution(s). Generally, this information is collected in the form
+of execution traces \cite{J:Hojaji-Mayerhofer-etAl:2019} that represent the dynamic
+state of the \DSL along the execution. Although this approach does not strictly 
+fit our definition of MA, it is interesting because it highlights the importance
+of properly identifying what a dynamic state is, and the possibility to reuse
+the MA engine for different purposes. Several contributions follow this approach
+\cite{J:Hegedues-Rath-Varro:2012,Guin-Syriani:2013,idani2021formal}, with different
+MT languages. Since our approach promotes decoupling transformations from animations,
+our vision allows to disconnect the original animations used when collecting information,
+from the animations used afterwards, when the animation is replayed offline. 
+
+Debugging, and in particular omniscient debugging 
+\citep{bousse2018omniscient,J:Corley-Eddy-Syriani-Grey:2016,J:VanMierlo-Vangheluwe-etAl:2020},
+is a topic closely related to MA, as it shares some of the underlying mechanisms,
+such as the definition of a TU considered as a candidate \emph{step} for debugging,
+and the protocols used to communicate between the transformation engine and the debugger.
+\citet{bousse2018omniscient} introduce two interesting notions that we have reused
+in our vision. First, \emph{annotation steps} indicate which parts of a MT (our TUs) may safely
+be interrupted for inspection during debugging. Second, an \emph{interruption pattern}
+(based on the more well-known Observer pattern \cite{B:Gamma-etAl:1995}) specifies
+a minimal interface for external services, typically the debugger, to interrupt
+the execution engine at the beginning and end of the execution, and at key moments
+when annotation steps are reached. \citet{J:VanMierlo-Vangheluwe-etAl:2020} provide
+a reusable architecture and an explicitly modelled workflow to support debuggers
+construction. An interesting feature is the ability to rely on a visual representation
+of the models being simulating, thus providing a form of animation.
+
+Modelling \& Simulation \cite{B:Birta-Arbez:2019} is a closely related research 
+area addressing large Cyber-Physical Systems, where the behaviour is usually expressed
+through formalisms that include real-time, and sometimes continuous space variables,
+based on physical phenomena that require complex behaviour captured through, among
+others, differential equations. Although the behaviour of such systems is clearly
+out of scope of \MDE, the tools supporting these specifications often propose 
+\emph{visual} simulation (e.g. \textsc{Ansys} Simplorer, 20-sim, MapleSoft MapleSim, etc.)
+They do not strictly compare to our proposal, but many ideas and concerns from the
+literature of this research area may help design better animators. 
+

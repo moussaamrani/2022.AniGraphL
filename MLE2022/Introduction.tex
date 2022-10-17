@@ -1,0 +1,78 @@
+\section{Introduction}
+\label{sec:Introduction}
+
+Investing the time and efforts to develop the tooling associated with general-purpose
+programming or modelling langages, such as analysers, debuggers, and testing
+frameworks, is a no-brainer, because of the large audience it will benefit.
+The same question for Domain-Specific (Modelling) Languages (\DSMLs) has a
+more mitigated answer. For example, in recent years, many efforts have been
+invested in defining guidelines for the systematic design and development of 
+\DSL debuggers 
+\cite{bousse2018omniscient,J:VanMierlo-Vangheluwe-etAl:2020,J:Corley-Eddy-Syriani-Grey:2016},
+but also various analysis tools \cite{Meyers-Deshayes-etAl:2014}, resulting in
+tool support that automate most part of the development. This helps reduce the
+time and efforts \DSL tool builders have to invest to offer, alongside of their
+\DSL, supporting tools that are nowadays considered essential for the activity
+of \DSL modelling.
+
+A complementary, lightweight approach for ensuring correctness and quality of
+\DSLs, in particular concerning their behaviour, is the adoption of Model 
+Animation (MA). MA can be seen as the visual representation of the simulation of
+Model Transformations (MTs) \cite{J:Lucio-Amrani-etAl:2014}: it gives a visual 
+counterpart to the changes and updates operated on a model during its execution.
+Just like debugging, MA assumes that an MT captures the behavioural semantics 
+of a \DSL, namely an inplace, endogenous \emph{simulation}, and that the MT 
+engine is capable of interrupting its execution in key places so that the 
+modeller can inspect visually what is happening. However,
+since MA heavily relies on model visualisation, another crucial element is necessary:
+the definition of a \emph{visual} concrete syntax for the model, and an associated
+MA engine that has the ability to alter graphical features of the concrete syntax
+fast enough to confer the illusion of movement, hence the animation. Relying
+on visual information, MA provides an insight and feedback about what is going on
+during a simulation that would help modellers to understand, analyse, and predict
+what their models do by relying on visual information, especially those who have
+little background in programming. It should also support MT designers for understanding,
+tracing, monitoring, and ultimately debugging their specifications based on visual
+clues.
+
+Many \DSL tools already offer the ability to perform MA alongside of MT. eProvide,
+\citep{Sadilek-Wachsmuth:2008} (now discontinued) was one of the first tools that
+included a ``visual debugger'', which required to alter the \DSL metamodel to 
+accommodate with the debugging logic, and relied on simple graphical components.
+More recently, GeMoC \citep{combemale2016tool} and AtoMPM \cite{Syriani-Vangheluwe-etAl:2013}
+are two well-established \DSL frameworks that both integrate debugging and MA. 
+The animators are tightly coupled with the underlying MT Language (MTL) for 
+performing animation (although GeMoC offers several ones, namely Kermeta and Xtend), since the
+execution engine is instrumented to stop at specific locations in the MT to perform
+animation pieces. An interesting feature of AtoMPM is the ability to take advantage
+of the concrete syntax to express the MT rules themselves, reducing the gap between
+MT specification and MA. Other tools based on formalisms that have native graphical
+representations (such as Finite State Machines and Petri Nets) offer animators
+with little extra efforts since the MT is directly expressed using the visual MT,
+whose execution is simply rendered visually. However, these tools force MT designers to 
+specify their transformations in a formalism that does not directly manipulate their
+metamodel's features. 
+
+Although these tools all represent interesting steps and real progress in the matter
+of MA, they sometimes lack \emph{flexibility} in the MA specification, and 
+\emph{reuse} of MA units across \DSLs. 
+In this paper, we take a first step towards the systematic engineering of MA, by
+identifying key components for designing MA tools, such that they ensure our
+required properties of flexibility and reuse. We formulate three challenges that
+touch upon the core components of animators: the concrete syntax and the associated
+MA engine; the MA specification; and the relationship between MA and MT.
+We detail and elaborate these challenges by showing on simple examples what we
+intend by flexibility and reuse, and how a compositional \DSL dedicated to animation
+can help with these requirements. 
+
+The paper is organised as follows. We start in \S \ref{sec:Motivation} by clarifying
+the notion of MA in contrast to closely related notions, and motivate our challenges
+with concrete situations. We review in \S \ref{sec:Examples} some popular \DSLs,
+and devise a family of animation for each of them, showing that animation should
+be left as a design choice, instead of being forced by an execution engine. 
+We then revisit the challenges in \S \ref{sec:Challenges}, to identify key 
+ingredients for each of them that would support the ability to build animators.
+To conceptually meet the challenges, we formulate a (partial) proposal in \S 
+\ref{sec:Proposal} and show on our example \DSLs how some of the challenges find
+an interesting answer. Finally, we discuss Related Work in \S \ref{sec:RW} before
+wrapping up in \S \ref{sec:Conclusion} with concluding remarks.
